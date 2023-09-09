@@ -4,7 +4,9 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Locale.setDefault(Locale.US);
+
         Scanner sc = new Scanner(System.in);
+
         System.out.println("\n******************************************");
         System.out.println("Dados do Cliente: \n");
         String nome = "Benjamim Leal\n";
@@ -26,19 +28,30 @@ public class Main {
                 4- Sair            
                 """;
         int opcao = 0;
-        while (opcao != 4){
+        while (opcao != 4  ) {
+            System.out.println(menu);
+            opcao = sc.nextInt();
+
+            if (opcao == 1) {
+                System.out.printf("Saldo atual: %.2f \n", saldo);
+                } else if (opcao == 2) {
+                    System.out.println("Qual valor você quer transferir? ");
+                    double valorTransferencia = sc.nextDouble();
+                    if (valorTransferencia > saldo) {
+                        System.out.println("Saldo insuficiente, verifique seu saldo atual. ");
+                    }else {
+                        saldo -= valorTransferencia;
+                        System.out.println("O valor de " + valorTransferencia + " Foi transferido com sucesso!\n");
+                    }
+                } else if (opcao == 3) {
+                    System.out.println("Qual é o valor recebido? \n");
+                    double valorRecebido = sc.nextDouble();
+                    saldo += valorRecebido;
+                    System.out.printf("Novo saldo:%.2f \n", saldo);
+                }
+
 
         }
-
-
-
-
-
-
-
-
-
-
 
 
 
